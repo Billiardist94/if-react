@@ -1,8 +1,8 @@
 import React from "react";
 
-const HomesGuestLovesHeader = () => {
+const HomesGuestLovesHeader = (props) => {
     return (
-        <div className='homes-block-header'>
+        <div className={props.className}>
             <h3 className="h3-text">Homes guests loves</h3>
         </div>
     )

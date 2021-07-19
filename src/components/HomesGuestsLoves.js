@@ -2,10 +2,10 @@ import '../styles/components/HomesGuestsLoves.css';
 import React from "react";
 import Container from "./Container";
 
-function HomesGuestsLoves(){
+function HomesGuestsLoves(props){
     return (
-        <section className="homes-guests-loves">
-            <Container/>
+        <section className={props.className}>
+            <Container className='container'/>
         </section>
     );
 }

@@ -1,11 +1,11 @@
 import HomesGuestLovesHeader from "./HomesGuestLovesHeader";
 import HomesGuestLovesCards from "./HomesGuestLovesCards";
 
-const Container = () => {
+const Container = (props) => {
     return (
-        <div className='container'>
-            <HomesGuestLovesHeader/>
-            <HomesGuestLovesCards/>
+        <div className={props.className}>
+            <HomesGuestLovesHeader className='homes-block-header'/>
+            <HomesGuestLovesCards className='homes-block-cards'/>
         </div>
     )
 }

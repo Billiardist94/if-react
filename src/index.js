@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomesGuestsLoves />
+    <HomesGuestsLoves className='homes-guests-loves'/>
   </React.StrictMode>,
   document.getElementById('root')
 );
