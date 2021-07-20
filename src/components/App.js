@@ -1,8 +1,8 @@
-import '../styles/components/HomesGuestsLoves.css';
+import '../styles/components/App.css';
 import React from "react";
 import Container from "./Container";
 
-function HomesGuestsLoves(props){
+function App(props){
     return (
         <section className={props.className}>
             <Container className='container'/>
@@ -10,4 +10,4 @@ function HomesGuestsLoves(props){
     );
 }
 
-export default HomesGuestsLoves;
+export default App;
