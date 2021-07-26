@@ -1,3 +1,5 @@
+import React from "react";
+
 const Hotel = ({item}) => {
     return (
         <li className="homes-list-item col-3 col-md-6 col-sm-3">

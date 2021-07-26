@@ -1,3 +1,4 @@
+import React from "react";
 
 let position = 0;
 let screenWidth = document.documentElement.clientWidth

@@ -1,3 +1,5 @@
+import React from "react";
+
 import Hotels from "./Hotels";
 
 const HomesGuestLovesUl = (props) => {
