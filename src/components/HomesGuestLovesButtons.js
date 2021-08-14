@@ -1,3 +1,5 @@
+import React from "react";
+
 import HomesGuestLovesBtn from "./HomesGuestLovesBtn";
 
 const HomesGuestLovesButtons = (props) => {
