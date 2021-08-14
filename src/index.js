@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HomesGuestsLoves from './components/HomesGuestsLoves';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomesGuestsLoves />
+    <App className='homes-guests-loves'/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,11 +1,9 @@
-import Hotels from "./Hotels";
+import HomesGuestLovesUl from "./HomesGuestLovesUl";
 
-const HomesGuestLovesCards = () => {
+const HomesGuestLovesCards = (props) => {
     return (
-        <div className='homes-block-cards'>
-            <ul className='homes-list'>
-                <Hotels/>
-            </ul>
+        <div className={props.className}>
+            <HomesGuestLovesUl className='homes-list'/>
         </div>
     )
 }
