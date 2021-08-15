@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import data from "../../constants/content";
 import bgImage from '../../bg-image.jpg'
 import AvailHotel from "../AvailableHotels/AvailHotel";
 
@@ -20,6 +19,18 @@ class TopSection extends Component {
         })
     }
 
+    handleFetch = () => {
+        const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
+        const params = {search: this.state.value}
+        url.search = new URLSearchParams(params).toString()
+
+        fetch(url.toString())
+            .then(response => response.json())
+            .then(result => this.setState({
+                array: result.filter(item => item.name.toLowerCase().includes(this.state.value.toLowerCase()) || item.country.toLowerCase().includes(this.state.value.toLowerCase()) || item.city.toLowerCase().includes(this.state.value.toLowerCase()))
+            }));
+    }
+
     handleForm = (event) => {
         event.preventDefault();
         if (this.state.value === '') {
@@ -27,9 +38,7 @@ class TopSection extends Component {
                 display: 'none'
             }, () => alert('Enter some value!'))
         } else {
-            this.setState({
-                array: data.filter(item => item.name.toLowerCase().includes(this.state.value.toLowerCase()) || item.country.toLowerCase().includes(this.state.value.toLowerCase()) || item.city.toLowerCase().includes(this.state.value.toLowerCase()))
-            })
+            this.handleFetch()
             this.setState({
                 display: 'block'
             })
