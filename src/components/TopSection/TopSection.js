@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import bgImage from '../../bg-image.jpg'
 import AvailHotel from "../AvailableHotels/AvailHotel";
+import Carousel from "../HomesGuestLoves/Carousel";
+import {SwiperSlide} from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import './../../style.css';
+
+const availableHotelsRef = React.createRef();
 
 class TopSection extends Component {
     constructor(props) {
@@ -9,15 +15,15 @@ class TopSection extends Component {
             value: '',
             array: [],
             display: 'none'
-        }
-    }
+        };
+    };
 
     handleInput = (event) => {
         event.preventDefault();
         this.setState({
-            value: event.target.value
-        })
-    }
+            value: event.target.value.trim()
+        });
+    };
 
     handleFetch = () => {
         const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
@@ -28,12 +34,21 @@ class TopSection extends Component {
             .then(response => response.json())
             .then(result => this.setState({
                 array: result.filter(item => item.name.toLowerCase().includes(this.state.value.toLowerCase()) || item.country.toLowerCase().includes(this.state.value.toLowerCase()) || item.city.toLowerCase().includes(this.state.value.toLowerCase()))
-            }));
-    }
+            }, () => this.handleValidation()));
+    };
+
+    handleValidation = () => {
+        if (this.state.array.length === 0) {
+            alert('There is no matches!')
+            this.setState({
+                display: 'none'
+            });
+        }
+    };
 
     handleForm = (event) => {
         event.preventDefault();
-        if (this.state.value === '') {
+        if (this.state.value === '' || this.state.value === ' '|| this.state.value === '  ') {
             this.setState({
                 display: 'none'
             }, () => alert('Enter some value!'))
@@ -41,9 +56,9 @@ class TopSection extends Component {
             this.handleFetch()
             this.setState({
                 display: 'block'
-            })
+            }, () => availableHotelsRef.current.scrollIntoView({behavior: "smooth"}));
         }
-    }
+    };
 
     render() {
         return (
@@ -134,29 +149,37 @@ class TopSection extends Component {
                         </form>
                     </div>
                 </section>
-                <section className='available-hotels' style={{display: this.state.display}}>
+                <section className='available-hotels' style={{display: this.state.display}} ref={availableHotelsRef}>
                     <div className="container">
                         <div className="homes-block-header">
                             <h3 className="h3-text">Available hotels</h3>
                         </div>
-                        <div className="homes-block-cards">
-                            <ul className="homes-list">
-                                <AvailHotel props={this.state.array}/>
-                            </ul>
-                        </div>
-                        <div className="homes-block-nav">
-                            <button id="hgl-leftBtn" className="homes-nav-btn">
-                                &#x3c;
-                            </button>
-                            <button id="hgl-rightBtn" className="homes-nav-btn">
-                                &#x3e;
-                            </button>
-                        </div>
+                        <Carousel
+                            slides={this.state.array.map((el, index) => (
+                                <SwiperSlide key={index.toString()} tag='li' className="homes-list-item col-3 col-md-6 col-sm-3">
+                                    <AvailHotel
+                                        homesListCardClassName = 'homes-list-card'
+                                        homesListImagesClassName = 'homes-list-images'
+                                        homesLinkImageClassName = 'homes-link-image'
+                                        homesListContentClassName = 'homes-list-content'
+                                        homesListHeadingClassName = 'homes-list-heading'
+                                        homesListTitleClassName = 'homes-list-title'
+                                        homesListSubtitleClassName = 'homes-list-subtitle'
+                                        homesListTitleContent = {`${el.name},`}
+                                        homesListSubtitleContentCity = {`${el.city}`}
+                                        homesListSubtitleContentCountry = {`${el.country}`}
+                                        src = {el.imageUrl}
+                                        alt = {el.name}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        />
+
                     </div>
                 </section>
             </>
         );
-    }
+    };
 }
 
 export default TopSection;
