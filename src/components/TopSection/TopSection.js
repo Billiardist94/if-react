@@ -5,6 +5,8 @@ import Carousel from "../HomesGuestLoves/Carousel";
 import {SwiperSlide} from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './../../style.css';
+import Calendar from "./Calendar/Calendar";
+import Filter from "./Filter/Filter";
 
 const availableHotelsRef = React.createRef();
 
@@ -14,9 +16,20 @@ class TopSection extends Component {
         this.state = {
             value: '',
             array: [],
-            display: 'none'
+            display: 'none',
+            isClicked: false,
+            quantityAdult: 1,
+            quantityRooms: 1,
+            quantityChildren: 0
         };
     };
+
+    addFilter = () => {
+        this.setState({
+            isClicked: !this.state.isClicked
+        });
+        console.log('addFilter work')
+    }
 
     handleInput = (event) => {
         event.preventDefault();
@@ -60,6 +73,24 @@ class TopSection extends Component {
         }
     };
 
+    getAdultQuantity = (val) => {
+        this.setState({
+            quantityAdult: val
+        })
+    };
+
+    getRoomsQuantity = (val) => {
+        this.setState({
+            quantityRooms: val
+        })
+    };
+
+    getChildrenQuantity = (val) => {
+        this.setState({
+            quantityChildren: val
+        })
+    };
+
     render() {
         return (
             <>
@@ -76,71 +107,23 @@ class TopSection extends Component {
                                             fill="#BFBFBF"/>
                                     </svg>
                                     <input type="text" id="destination" name="destination" className="destination-form input-form" placeholder="New York" onChange={this.handleInput} required/>
-                                        <label className="label label-1" htmlFor="destination">Your destination or hotel name</label>
+                                    <label className="label label-1" htmlFor="destination">Your destination or hotel name</label>
                                 </div>
-                                <div className="search-form-group dates col-3 col-md-6 col-sm-6">
-                                    <input type="text" id="date1" className="date-form input-form" placeholder="Tue 15 Sept"/>
-                                        <label className="label label-2" htmlFor="date1">Check-in</label>
-                                        <input type="text" id="date2" className="date-form input-form" placeholder="Sat 19 Sept"/>
-                                            <label className="label label-3" htmlFor="date2">Check-out</label>
-                                            <label className="label check-label-desktop" htmlFor="date1">Check-in — Check-out</label>
-                                </div>
+                                <Calendar />
                                 <div className="persons search-form-group col-3 col-md-6 col-sm-6">
                                     <div id="persons">
-                                        <span className="guests_count">
-                                            <span id="adultsSpan">2 Adults</span>
-                                            <span id="childrenSpan">&nbsp;—&nbsp; 0 Children</span>
-                                            <span id="roomsSpan">&nbsp;—&nbsp; 1 Room</span>
-                                        </span>
+                                        <span onClick={this.addFilter} className="guests_count">
+                                            <span id="roomsSpan">{this.state.quantityAdult} Adult</span>
+                                            <span id="childrenSpan">&nbsp;—&nbsp; {this.state.quantityChildren} Children</span>
+                                            <span id="roomsSpan">&nbsp;—&nbsp; {this.state.quantityRooms} Room</span>
+                                          </span>
                                     </div>
-                                    <div className="block" style={{display: 'none'}}>
-                                        <div className="box">
-                                            <div className="item" id="itemAdults">
-                                                <span>Adults</span>
-                                                <div className="choose" id="chooseAdults">
-                                                    <input className="input" id="inputAdults" type="number" defaultValue="2" style={{display: 'none'}}/>
-                                                        <button className="btn" id="btnAdultMinus" type="button">
-                                                            <span>-</span>
-                                                        </button>
-                                                        <span id="adultsNum">2</span>
-                                                        <button className="btn" id="btnAdultPlus" type="button">
-                                                            <span>+</span>
-                                                        </button>
-                                                </div>
-                                            </div>
-                                            <div className="item" id="itemChildren">
-                                                <span>Children</span>
-                                                <div className="choose" id="chooseChildren">
-                                                    <button className="btn disabled-btn" id="btnChildrenMinus"
-                                                            type="button">
-                                                        <span>-</span>
-                                                    </button>
-                                                    <span id="childrenNum">0</span>
-                                                    <button className="btn" id="btnChildrenPlus" type="button">
-                                                        <span>+</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div className="item" id="itemRooms">
-                                                <span>Rooms</span>
-                                                <div className="choose" id="chooseRooms">
-                                                    <input className="input" id="inputRooms" type="number" defaultValue="1" style={{display: 'none'}}/>
-                                                        <button className="btn" id="btnRoomsMinus" type="button">
-                                                            <span>-</span>
-                                                        </button>
-                                                        <span id="roomsNum">1</span>
-                                                        <button className="btn" id="btnRoomsPlus" type="button">
-                                                            <span>+</span>
-                                                        </button>
-                                                </div>
-                                            </div>
-                                            <div className="child-age" style={{display: 'none'}}>
-                                                <p className="child-age-span">What is the age of the child you’re
-                                                    travelling with?</p>
-                                                <div className="child-age-selection"> </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Filter
+                                        isClicked={this.state.isClicked}
+                                        sendAdultData={this.getAdultQuantity}
+                                        sendRoomsData={this.getRoomsQuantity}
+                                        sendChildrenData={this.getChildrenQuantity}
+                                    />
                                 </div>
                                 <div className="submit col-2 col-md-12 col-sm-6">
                                     <input type="submit" id="submit" className="submit-form input-form" value="Search" onClick={this.handleForm}/>
