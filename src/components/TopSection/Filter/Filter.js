@@ -2,23 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilterItem from './FilterItem';
 
-// eslint-disable-next-line react/prop-types
-const Filter = ({ isClicked, sendAdultData, sendRoomsData, sendChildrenData }) => {
+const Filter = ({ isClicked }) => {
   if (isClicked) {
     return (
-      <div className="block">
-        <div className="box">
-          <FilterItem startNumber={1} endNumber={30} labelText="Adults" sendData={sendAdultData} />
-          <FilterItem
-            startNumber={0}
-            endNumber={10}
-            labelText="Children"
-            select
-            sendData={sendChildrenData}
-          />
-          <FilterItem startNumber={1} endNumber={30} labelText="Rooms" sendData={sendRoomsData} />
+        <div className="block">
+          <div className="box">
+            <FilterItem startNumber={1} endNumber={30} labelText="Adults" />
+            <FilterItem startNumber={0} endNumber={10} labelText="Children" select />
+            <FilterItem startNumber={1} endNumber={30} labelText="Rooms" />
+          </div>
         </div>
-      </div>
     );
   }
   return null;

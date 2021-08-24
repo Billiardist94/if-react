@@ -7,6 +7,7 @@ import 'swiper/swiper-bundle.css';
 import './../../style.css';
 import Calendar from "./Calendar/Calendar";
 import Filter from "./Filter/Filter";
+import axios from 'axios';
 
 const availableHotelsRef = React.createRef();
 
@@ -18,9 +19,7 @@ class TopSection extends Component {
             array: [],
             display: 'none',
             isClicked: false,
-            quantityAdult: 1,
-            quantityRooms: 1,
-            quantityChildren: 0
+            quantity: 1
         };
     };
 
@@ -73,24 +72,6 @@ class TopSection extends Component {
         }
     };
 
-    getAdultQuantity = (val) => {
-        this.setState({
-            quantityAdult: val
-        })
-    };
-
-    getRoomsQuantity = (val) => {
-        this.setState({
-            quantityRooms: val
-        })
-    };
-
-    getChildrenQuantity = (val) => {
-        this.setState({
-            quantityChildren: val
-        })
-    };
-
     render() {
         return (
             <>
@@ -113,17 +94,12 @@ class TopSection extends Component {
                                 <div className="persons search-form-group col-3 col-md-6 col-sm-6">
                                     <div id="persons">
                                         <span onClick={this.addFilter} className="guests_count">
-                                            <span id="roomsSpan">{this.state.quantityAdult} Adult</span>
-                                            <span id="childrenSpan">&nbsp;—&nbsp; {this.state.quantityChildren} Children</span>
-                                            <span id="roomsSpan">&nbsp;—&nbsp; {this.state.quantityRooms} Room</span>
+                                            <span id="roomsSpan">1 Adult</span>
+                                            <span id="childrenSpan">&nbsp;—&nbsp; 0 Children</span>
+                                            <span id="roomsSpan">&nbsp;—&nbsp; 1 Room</span>
                                           </span>
                                     </div>
-                                    <Filter
-                                        isClicked={this.state.isClicked}
-                                        sendAdultData={this.getAdultQuantity}
-                                        sendRoomsData={this.getRoomsQuantity}
-                                        sendChildrenData={this.getChildrenQuantity}
-                                    />
+                                    <Filter isClicked={this.state.isClicked}/>
                                 </div>
                                 <div className="submit col-2 col-md-12 col-sm-6">
                                     <input type="submit" id="submit" className="submit-form input-form" value="Search" onClick={this.handleForm}/>
@@ -153,6 +129,7 @@ class TopSection extends Component {
                                         homesListSubtitleContentCountry = {`${el.country}`}
                                         src = {el.imageUrl}
                                         alt = {el.name}
+                                        id = {el.id}
                                     />
                                 </SwiperSlide>
                             ))}

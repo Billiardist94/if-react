@@ -1,0 +1,35 @@
+.avail-hotel-block{
+    padding: 100px 0;
+    color: #383838;
+    background-color: #EAF0F9;
+}
+.avail-hotel-cards{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.avail-hotel-item{
+    display: flex;
+}
+.avail-hotel-header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.avail-hotel-img{
+    margin-right: 30px;
+    width: 300px;
+    height: 300px;
+}
+.avail-hotel-text{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}

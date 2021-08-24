@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FilterSelect from './FilterSelect';
 
 // eslint-disable-next-line react/prop-types
-const FilterItem = ({ startNumber, endNumber, labelText, select, sendData }) => {
+const FilterItem = ({ startNumber, endNumber, labelText, select }) => {
   const [quantity, setQuantity] = useState(startNumber);
   const [selected, setSelected] = useState(false);
 
@@ -14,7 +14,6 @@ const FilterItem = ({ startNumber, endNumber, labelText, select, sendData }) => 
     if (select && quantity === 1) {
       setSelected(false);
     }
-    sendData(quantity - 1);
   };
 
   const increaseQuantityAddSelect = () => {
@@ -23,37 +22,36 @@ const FilterItem = ({ startNumber, endNumber, labelText, select, sendData }) => 
     if (select) {
       setSelected(true);
     }
-    sendData(quantity + 1);
   };
 
   return (
-    <>
-      <div className="item">
-        <span>{labelText}</span>
-        <div className="choose">
-          <button
-            className={quantity === 0 ? 'disabled-btn btn' : 'btn'}
-            id="btnAdultMinus"
-            type="button"
-            disabled={quantity === 0}
-            onClick={decreaseQuantityRemoveSelect}
-          >
-            <span>-</span>
-          </button>
-          <span>{quantity}</span>
-          <button
-            className={quantity === endNumber ? 'disabled-btn btn' : 'btn'}
-            id="btnAdultPlus"
-            type="button"
-            disabled={quantity === endNumber}
-            onClick={increaseQuantityAddSelect}
-          >
-            <span>+</span>
-          </button>
+      <>
+        <div className="item">
+          <span>{labelText}</span>
+          <div className="choose">
+            <button
+                className={quantity === 0 ? 'disabled-btn btn' : 'btn'}
+                id="btnAdultMinus"
+                type="button"
+                disabled={quantity === 0}
+                onClick={decreaseQuantityRemoveSelect}
+            >
+              <span>-</span>
+            </button>
+            <span>{quantity}</span>
+            <button
+                className={quantity === endNumber ? 'disabled-btn btn' : 'btn'}
+                id="btnAdultPlus"
+                type="button"
+                disabled={quantity === endNumber}
+                onClick={increaseQuantityAddSelect}
+            >
+              <span>+</span>
+            </button>
+          </div>
         </div>
-      </div>
-      <FilterSelect selected={selected} quantity={quantity} />
-    </>
+        <FilterSelect selected={selected} quantity={quantity} />
+      </>
   );
 };
 
