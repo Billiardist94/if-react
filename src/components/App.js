@@ -16,6 +16,9 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
+          <Route exact path="/hotels">
+            <HomePage />
+          </Route>
           <Route exact path="/hotels/:id">
             <AvailHotelCard />
           </Route>

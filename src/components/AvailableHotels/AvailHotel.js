@@ -20,7 +20,9 @@ const AvailHotel = ({
   return (
     <div className={homesListCardClassName}>
       <div className={homesListImagesClassName}>
-        <img src={src} alt={alt} className={homesLinkImageClassName} />
+        <NavLink to={`hotels/${id}`}>
+          <img src={src} alt={alt} className={homesLinkImageClassName} />
+        </NavLink>
       </div>
       <div className={homesListContentClassName}>
         <div className={homesListHeadingClassName}>

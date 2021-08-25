@@ -1,5 +1,5 @@
 .avail-hotel-block{
-    padding: 100px 0;
+    padding: 150px 0;
     color: #383838;
     background-color: #EAF0F9;
 }
@@ -12,9 +12,15 @@
     font-size: 24px;
     font-weight: 400;
     margin-top: 20px;
+    /*background-color: #EAF0F9;*/
+    background: rgb(135,155,193);
+    background: linear-gradient(9deg, rgba(135,155,193,0.7794468129048494) 0%, rgba(255,255,255,1) 100%);
+    padding: 20px;
+    border: 3px solid #F5BD41;
 }
 .avail-hotel-item{
     display: flex;
+    width: 100%;
 }
 .avail-hotel-header{
     display: flex;
@@ -32,4 +38,20 @@
     display: flex;
     justify-content: start;
     flex-direction: column;
+    flex: 2;
+}
+.avail-hotel-link{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+.avail-hotel-link:hover{
+    text-decoration: none;
+    color: #F5BD41;
+    transition: .3s;
+}
+.avail-hotel-price{
+    color: #005005;
+    font-size: 34px;
+    flex: 1;
 }

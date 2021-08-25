@@ -61,11 +61,9 @@ button, a, label {
 /*Header block start*/
 .header {
     color: #FFFFFF;
-
     top: 0;
     left: 0;
     width: 100%;
-
 }
 .header-body{
     display: flex;
