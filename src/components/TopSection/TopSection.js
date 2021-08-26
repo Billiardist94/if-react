@@ -7,7 +7,7 @@ import 'swiper/swiper-bundle.css';
 import './../../style.css';
 import Calendar from "./Calendar/Calendar";
 import Filter from "./Filter/Filter";
-import axios from 'axios';
+
 
 const availableHotelsRef = React.createRef();
 
