@@ -7,8 +7,8 @@ const SignOut = ({ isClicked }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    localStorage.setItem('isSignedIn', false);
     history.go(0);
+    localStorage.clear();
   };
 
   if (isClicked) {

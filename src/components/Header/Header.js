@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import SignOut from '../SignIn_SignOut/SignOut';
+import getIsSignIn from '../../services';
 
 const Header = () => {
-  const [isClicked, setClicked] = useState(false);
-
-  const isSignedIn = localStorage.getItem('isSignedIn');
-
-  const handleClick = () => {
-    setClicked(!isClicked);
-  };
-
   return (
     <header className="header">
       <div className="container">
@@ -58,7 +51,9 @@ const Header = () => {
                 </svg>
               </li>
               <li className="header-item">
-                <NavLink to="/signin" onClick={ isSignedIn === false || isSignedIn === null ? () => {} : handleClick}>
+                <NavLink
+                  to="/signin"
+                >
                   <svg
                     width="40"
                     height="40"
@@ -72,7 +67,7 @@ const Header = () => {
                     />
                   </svg>
                 </NavLink>
-                <SignOut isClicked={isClicked} />
+                <SignOut isClicked={getIsSignIn()} />
               </li>
             </ul>
             <div className="header-menu">

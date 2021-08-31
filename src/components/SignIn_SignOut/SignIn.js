@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import bgImage from '../../bg-image.jpg';
 import './SignIn.css';
-import { useHistory } from 'react-router-dom';
 import userData from '../../constants/userData';
+import getIsSignIn from '../../services';
 
 const SignIn = () => {
   const history = useHistory();
@@ -13,8 +14,8 @@ const SignIn = () => {
   const [emailError, setEmailError] = useState('Email cannot be empty');
   const [passwordError, setPasswordError] = useState('Password cannot be empty');
   const [formValid, setFormValid] = useState(false);
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [wrongEmailOrPassword, setWrongEmailOrPassword] = useState('')
+  // const [isSignedIn, setIsSignedIn] = useState(false);
+  const [wrongEmailOrPassword, setWrongEmailOrPassword] = useState('');
 
   useEffect(() => {
     if (emailError || passwordError) {
@@ -66,14 +67,12 @@ const SignIn = () => {
     if (email === userData.email && password === userData.password) {
       setWrongEmailOrPassword(`Welcome, ${userData.userName}!`);
       setTimeout(() => {
-        setIsSignedIn(true);
         localStorage.setItem('email', email);
         localStorage.setItem('userName', userData.userName);
-        localStorage.setItem('isSignedIn', true);
         history.goBack();
       }, 2000);
     } else {
-      setWrongEmailOrPassword('There is no such email address or password.')
+      setWrongEmailOrPassword('There is no such email address or password.');
     }
   };
 
