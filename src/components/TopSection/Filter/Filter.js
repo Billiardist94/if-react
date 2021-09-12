@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterItem from './FilterItem';
+import Adult from './Adult';
+import Children from './Children';
+import Rooms from './Rooms';
 
 const Filter = ({ isClicked }) => {
   if (isClicked) {
     return (
       <div className="block">
         <div className="box">
-          <FilterItem startNumber={1} endNumber={30} labelText="Adults" />
-          <FilterItem startNumber={0} endNumber={10} labelText="Children" select />
-          <FilterItem startNumber={1} endNumber={30} labelText="Rooms" />
+          <Adult endNumber={30} labelText="Adults" />
+          <Rooms endNumber={30} labelText="Rooms" />
+          <Children endNumber={10} labelText="Children" select />
         </div>
       </div>
     );

@@ -7,7 +7,7 @@ import 'swiper/swiper-bundle.css';
 import './../../style.css';
 import Calendar from "./Calendar/Calendar";
 import Filter from "./Filter/Filter";
-
+import FilterTable from './Filter/FilterTable';
 
 const availableHotelsRef = React.createRef();
 
@@ -94,10 +94,8 @@ class TopSection extends Component {
                                 <div className="persons search-form-group col-3 col-md-6 col-sm-6">
                                     <div id="persons">
                                         <span onClick={this.addFilter} className="guests_count">
-                                            <span id="roomsSpan">1 Adult</span>
-                                            <span id="childrenSpan">&nbsp;—&nbsp; 0 Children</span>
-                                            <span id="roomsSpan">&nbsp;—&nbsp; 1 Room</span>
-                                          </span>
+                                            <FilterTable />
+                                        </span>
                                     </div>
                                     <Filter isClicked={this.state.isClicked}/>
                                 </div>

@@ -54,6 +54,8 @@ const SignIn = () => {
       case 'password':
         setPasswordDirty(true);
         break;
+      default:
+        return null;
     }
   };
 
