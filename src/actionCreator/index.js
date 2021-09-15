@@ -1,23 +1,17 @@
-export const incrementAdult = () => ({
-  type: 'INCREMENT_ADULT',
-});
+import { createActions } from 'redux-actions';
 
-export const decrementAdult = () => ({
-  type: 'DECREMENT_ADULT',
-});
-
-export const incrementRooms = () => ({
-  type: 'INCREMENT_ROOMS',
-});
-
-export const decrementRooms = () => ({
-  type: 'DECREMENT_ROOMS',
-});
-
-export const incrementChildren = () => ({
-  type: 'INCREMENT_CHILDREN',
-});
-
-export const decrementChildren = () => ({
-  type: 'DECREMENT_CHILDREN',
+export const {
+  incrementAdult,
+  decrementAdult,
+  incrementRooms,
+  decrementRooms,
+  incrementChildren,
+  decrementChildren,
+} = createActions({
+  INCREMENT_ADULT: (amount = 1) => ({ amount }),
+  DECREMENT_ADULT: (amount = 1) => ({ amount: -amount }),
+  INCREMENT_ROOMS: (amount = 1) => ({ amount }),
+  DECREMENT_ROOMS: (amount = 1) => ({ amount: -amount }),
+  INCREMENT_CHILDREN: (amount = 1) => ({ amount }),
+  DECREMENT_CHILDREN: (amount = 1) => ({ amount: -amount }),
 });

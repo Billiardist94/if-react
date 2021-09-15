@@ -1,13 +1,13 @@
+import { handleActions, combineActions } from 'redux-actions';
+import { incrementAdult, decrementAdult } from '../actionCreator';
+
 const initialState = 1;
 
-export const adultReducer = (state = initialState, action) => {
-  if (action.type === 'INCREMENT_ADULT') {
-    return state + 1;
-  }
-
-  if (action.type === 'DECREMENT_ADULT') {
-    return state - 1;
-  }
-
-  return state;
-};
+export const adultReducer = handleActions(
+  {
+    [combineActions(incrementAdult, decrementAdult)]: (state, { payload: { amount } }) => {
+      return state + amount;
+    },
+  },
+  initialState
+);
