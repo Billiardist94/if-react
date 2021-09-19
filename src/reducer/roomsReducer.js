@@ -1,13 +1,13 @@
+import { handleActions, combineActions } from 'redux-actions';
+import { incrementRooms, decrementRooms } from '../actionCreator';
+
 const initialState = 1;
 
-export const roomsReducer = (state = initialState, action) => {
-  if (action.type === 'INCREMENT_ROOMS') {
-    return state + 1;
-  }
-
-  if (action.type === 'DECREMENT_ROOMS') {
-    return state - 1;
-  }
-
-  return state;
-};
+export const roomsReducer = handleActions(
+  {
+    [combineActions(incrementRooms, decrementRooms)]: (state, { payload: { amount } }) => {
+      return state + amount;
+    },
+  },
+  initialState
+);

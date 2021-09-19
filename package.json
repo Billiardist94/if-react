@@ -21,7 +21,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.1",
+    "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
     "shortid": "^2.2.16",
     "swiper": "^6.8.4",
     "web-vitals": "^1.1.2"
