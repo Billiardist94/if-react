@@ -30,8 +30,8 @@ module.exports = {
                 use: ["html-loader"]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader'
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
