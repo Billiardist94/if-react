@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { SwiperSlide } from 'swiper/react';
 import HomesGuestLovesHeader from './HomesGuestLovesHeader';
 import Carousel from './Carousel';
 import 'swiper/swiper-bundle.css';
 import '../../style.css';
 import Hotel from './Hotel';
-import data from '../../constants/content';
+import {getPopularHotels} from '../../actionCreator/hotels'
 
 const Container = (props) => {
+  const popularHotels = useSelector(state => state.hotels.popular || []);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(getPopularHotels())
+  }, []);
+
   return (
     // eslint-disable-next-line react/prop-types,react/destructuring-assignment
     <div className={props.className}>
       <HomesGuestLovesHeader className="homes-block-header" />
       <Carousel
-        slides={data.map((el, index) => (
+        slides={popularHotels.map((el, index) => (
           <SwiperSlide
             key={index.toString()}
             tag="li"
