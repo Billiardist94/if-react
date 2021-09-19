@@ -28,8 +28,13 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 20px;
     font-size: 32px;
+}
+.avail-hotel-stars{
+    margin: 0 auto;
+}
+.avail-hotel-stars span{
+    margin-right: 5px;
 }
 .avail-hotel-img{
     margin-right: 30px;

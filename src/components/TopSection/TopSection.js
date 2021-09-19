@@ -102,7 +102,7 @@ class TopSection extends Component {
                                     <Filter isClicked={this.state.isClicked}/>
                                 </div>
                                 <div className="submit col-2 col-md-12 col-sm-6">
-                                    <input type="submit" id="submit" className="submit-form input-form" value="Search" onClick={this.handleForm}/>
+                                    <input type="submit" id="submit" className="submit-form input-form" value="Search" onClick={this.handleForm} />
                                 </div>
                             </div>
                         </form>

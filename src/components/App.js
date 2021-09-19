@@ -6,6 +6,7 @@ import HomesGuestLoves from './HomesGuestLoves/HomesGuestLoves';
 import AvailHotelCard from './AvailableHotels/AvailHotelCard';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
+import SignIn from './SignIn_SignOut/SignIn';
 
 function App() {
   return (
@@ -13,15 +14,10 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/hotels">
-            <HomePage />
-          </Route>
-          <Route exact path="/hotels/:id">
-            <AvailHotelCard />
-          </Route>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/hotels" component={HomePage} />
+          <Route exact path="/hotels/:id" component={AvailHotelCard} />
+          <Route exact path="/signin" component={SignIn} />
         </Switch>
         <Footer />
       </Router>

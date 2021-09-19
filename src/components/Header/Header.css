@@ -118,10 +118,13 @@ button, a, label {
     cursor: pointer;
     position: relative;
 }
+.header-item:last-of-type{
+    margin-right: 0;
+}
 .header-icons .header-item:last-child{
     margin-right: 0;
 }
-.header-item-txt:nth-child(2){
+.header-item-txt:nth-child{
     margin-right: 48px;
 }
 .header-item-txt:after{
@@ -144,4 +147,41 @@ button, a, label {
     line-height: 28px;
     color: #FFFFFF;
 }
+
+.sign-in-btn{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+}
+.sign-in-dropdown{
+    position: absolute;
+    background: linear-gradient(
+            9deg
+            , rgba(135,155,193,0.7794468129048494) 0%, rgba(255,255,255,1) 100%);
+    padding: 10px;
+    top: 50px;
+    right: 15px;
+    border: 3px solid #F5BD41;
+    border-radius: 8px;
+}
+.dropdown-list{
+    list-style: none;
+}
+.dropdown-list-item{
+    color: black;
+}
+.sign-in-link{
+    text-decoration: none;
+}
+.dropdown-list-item:hover{
+    color: #3077C6;
+}
+.active-NavLink{
+    background-color: #F5BD41;
+}
+
 /*Header block end*/
+

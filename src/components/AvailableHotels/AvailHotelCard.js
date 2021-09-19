@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './AvailHotelCard.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import bgImage from '../../bg-image.jpg';
 import TopSection from '../TopSection/TopSection';
 import 'swiper/swiper-bundle.css';
-import { Navigation, Pagination } from 'swiper';
 
 const AvailHotelCard = () => {
+  const history = useHistory();
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
   useEffect(() => {
@@ -16,6 +16,11 @@ const AvailHotelCard = () => {
       .then((response) => setHotel(response));
   }, []);
 
+  const handleGoBack = (e) => {
+    e.preventDefault();
+    history.push(`/`);
+  };
+
   if (hotel === null) {
     return <TopSection />;
   }
@@ -23,23 +28,100 @@ const AvailHotelCard = () => {
     <>
       <section className="avail-hotel-block" style={{ backgroundImage: `url(${bgImage})` }}>
         <div className="container">
-          <NavLink to="/hotels" className="avail-hotel-link">
-            &#8656; Back
-          </NavLink>
+          <a href='#' onClick={handleGoBack} className="avail-hotel-link">&#8656; Back</a>
           <div className="avail-hotel-cards">
             <div className="avail-hotel-header">
               <h3>{hotel.name}</h3>
+            </div>
+            <div className="avail-hotel-stars">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  tabIndex="-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                >
+                  <path
+                    className="svg-color--primary"
+                    fill="#F6AB3F"
+                    d="M11.988 5.21a.667.667 0 00-.545-.534l-3.604-.6L6.63.455a.666.666 0 00-1.262.001L4.16 4.076l-3.603.6a.667.667 0 00-.233 1.228L3.2 7.63l-1.165 3.493a.67.67 0 00.25.758.672.672 0 00.798-.026L6 9.52l2.917 2.333a.66.66 0 00.796.027.665.665 0 00.252-.758L8.8 7.63l2.876-1.725a.667.667 0 00.312-.696z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  tabIndex="-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                >
+                  <path
+                    className="svg-color--primary"
+                    fill="#F6AB3F"
+                    d="M11.988 5.21a.667.667 0 00-.545-.534l-3.604-.6L6.63.455a.666.666 0 00-1.262.001L4.16 4.076l-3.603.6a.667.667 0 00-.233 1.228L3.2 7.63l-1.165 3.493a.67.67 0 00.25.758.672.672 0 00.798-.026L6 9.52l2.917 2.333a.66.66 0 00.796.027.665.665 0 00.252-.758L8.8 7.63l2.876-1.725a.667.667 0 00.312-.696z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  tabIndex="-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                >
+                  <path
+                    className="svg-color--primary"
+                    fill="#F6AB3F"
+                    d="M11.988 5.21a.667.667 0 00-.545-.534l-3.604-.6L6.63.455a.666.666 0 00-1.262.001L4.16 4.076l-3.603.6a.667.667 0 00-.233 1.228L3.2 7.63l-1.165 3.493a.67.67 0 00.25.758.672.672 0 00.798-.026L6 9.52l2.917 2.333a.66.66 0 00.796.027.665.665 0 00.252-.758L8.8 7.63l2.876-1.725a.667.667 0 00.312-.696z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  tabIndex="-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                >
+                  <path
+                    className="svg-color--primary"
+                    fill="#F6AB3F"
+                    d="M11.988 5.21a.667.667 0 00-.545-.534l-3.604-.6L6.63.455a.666.666 0 00-1.262.001L4.16 4.076l-3.603.6a.667.667 0 00-.233 1.228L3.2 7.63l-1.165 3.493a.67.67 0 00.25.758.672.672 0 00.798-.026L6 9.52l2.917 2.333a.66.66 0 00.796.027.665.665 0 00.252-.758L8.8 7.63l2.876-1.725a.667.667 0 00.312-.696z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  tabIndex="-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                >
+                  <path
+                    className="svg-color--primary"
+                    fill="#F6AB3F"
+                    d="M11.988 5.21a.667.667 0 00-.545-.534l-3.604-.6L6.63.455a.666.666 0 00-1.262.001L4.16 4.076l-3.603.6a.667.667 0 00-.233 1.228L3.2 7.63l-1.165 3.493a.67.67 0 00.25.758.672.672 0 00.798-.026L6 9.52l2.917 2.333a.66.66 0 00.796.027.665.665 0 00.252-.758L8.8 7.63l2.876-1.725a.667.667 0 00.312-.696z"
+                  />
+                </svg>
+              </span>
             </div>
             <div className="avail-hotel-item">
               <div>
                 <img src={hotel.imageUrl} alt={hotel.name} className="avail-hotel-img" />
                 <div className="avail-hotel-photos">
                   <Swiper
-                    modules={[Navigation, Pagination]}
                     spaceBetween={3}
-                    slidesPerView={0}
-                    navigation
-                    pagination={{ clickable: true }}
+                    slidesPerView={null}
                   >
                     <SwiperSlide>
                       <img src={hotel.imageUrl} alt={hotel.name} className="swiper-photo" />

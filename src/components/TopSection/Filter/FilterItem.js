@@ -25,33 +25,33 @@ const FilterItem = ({ startNumber, endNumber, labelText, select }) => {
   };
 
   return (
-      <>
-        <div className="item">
-          <span>{labelText}</span>
-          <div className="choose">
-            <button
-                className={quantity === 0 ? 'disabled-btn btn' : 'btn'}
-                id="btnAdultMinus"
-                type="button"
-                disabled={quantity === 0}
-                onClick={decreaseQuantityRemoveSelect}
-            >
-              <span>-</span>
-            </button>
-            <span>{quantity}</span>
-            <button
-                className={quantity === endNumber ? 'disabled-btn btn' : 'btn'}
-                id="btnAdultPlus"
-                type="button"
-                disabled={quantity === endNumber}
-                onClick={increaseQuantityAddSelect}
-            >
-              <span>+</span>
-            </button>
-          </div>
+    <>
+      <div className="item">
+        <span>{labelText}</span>
+        <div className="choose">
+          <button
+            className={quantity === 0 ? 'disabled-btn btn' : 'btn'}
+            id="btnAdultMinus"
+            type="button"
+            disabled={quantity === 0}
+            onClick={decreaseQuantityRemoveSelect}
+          >
+            <span>-</span>
+          </button>
+          <span>{quantity}</span>
+          <button
+            className={quantity === endNumber ? 'disabled-btn btn' : 'btn'}
+            id="btnAdultPlus"
+            type="button"
+            disabled={quantity === endNumber}
+            onClick={increaseQuantityAddSelect}
+          >
+            <span>+</span>
+          </button>
         </div>
-        <FilterSelect selected={selected} quantity={quantity} />
-      </>
+      </div>
+      <FilterSelect selected={selected} quantity={quantity} />
+    </>
   );
 };
 
