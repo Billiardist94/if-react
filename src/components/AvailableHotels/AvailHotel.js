@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 const AvailHotel = ({
@@ -14,15 +15,20 @@ const AvailHotel = ({
   homesListSubtitleContentCountry,
   src,
   alt,
+  id,
 }) => {
   return (
     <div className={homesListCardClassName}>
       <div className={homesListImagesClassName}>
-        <img src={src} alt={alt} className={homesLinkImageClassName} />
+        <NavLink to={`hotels/${id}`}>
+          <img src={src} alt={alt} className={homesLinkImageClassName} />
+        </NavLink>
       </div>
       <div className={homesListContentClassName}>
         <div className={homesListHeadingClassName}>
-          <span className={homesListTitleClassName}>{homesListTitleContent}</span>
+          <span className={homesListTitleClassName}>
+            <NavLink to={`hotels/${id}`}>{homesListTitleContent}</NavLink>
+          </span>
           <span className={homesListSubtitleClassName}>
             {homesListSubtitleContentCity}, {homesListSubtitleContentCountry}
           </span>

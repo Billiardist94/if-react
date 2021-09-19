@@ -13,20 +13,20 @@ const FilterSelect = ({ selected, quantity }) => {
   const options = [];
   for (let i = 0; i < quantity; i += 1) {
     options.push(
-      <select key={i} className="select-child-age">
-        {ages.map((option) => (
-          <option key={option} value={option}>{`${option} years old`}</option>
-        ))}
-      </select>
+        <select key={i} className="select-child-age">
+          {ages.map((option) => (
+              <option key={option} value={option}>{`${option} years old`}</option>
+          ))}
+        </select>
     );
   }
 
   if (selected) {
     return (
-      <div className="child-age">
-        <p className="child-age-span">What is the age of the child you’re travelling with?</p>
-        <div className="child-age-selection">{options}</div>
-      </div>
+        <div className="child-age">
+          <p className="child-age-span">What is the age of the child you’re travelling with?</p>
+          <div className="child-age-selection">{options}</div>
+        </div>
     );
   }
   return null;
