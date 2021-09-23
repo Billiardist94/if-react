@@ -1,13 +1,22 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import React, {Component} from 'react';
-import bgImage from '../../bg-image.jpg'
 import AvailHotel from "../AvailableHotels/AvailHotel";
 import Carousel from "../HomesGuestLoves/Carousel";
 import {SwiperSlide} from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import './../../style.css';
+import '../AvailableHotels/AvailHotel.css';
 import Calendar from "./Calendar/Calendar";
 import Filter from "./Filter/Filter";
 import FilterTable from './Filter/FilterTable';
+import changeTheme from '../../actionCreator/theme';
+import {
+    availableHotels,
+    intro,
+    introTitle, label
+} from './TopSection.styles';
 
 const availableHotelsRef = React.createRef();
 
@@ -75,9 +84,9 @@ class TopSection extends Component {
     render() {
         return (
             <>
-                <section className="intro" style={{backgroundImage: `url(${bgImage})`}}>
+                <section css={intro}>
                     <div className="container">
-                        <h1 className="intro-title">Discover stays<br/>to live, work or just relax</h1>
+                        <h1 css={introTitle}>Discover stays<br/>to live, work or just relax</h1>
                         <form action="#" className="form" method="post">
                             <div className="inputs">
                                 <div className="search-form-group destination col-4 col-md-12 col-sm-6">
@@ -88,7 +97,7 @@ class TopSection extends Component {
                                             fill="#BFBFBF"/>
                                     </svg>
                                     <input type="text" id="destination" name="destination" className="destination-form input-form" placeholder="New York" onChange={this.handleInput} required/>
-                                    <label className="label label-1" htmlFor="destination">Your destination or hotel name</label>
+                                    <label css={label} className="label-1" htmlFor="destination">Your destination or hotel name</label>
                                 </div>
                                 <Calendar />
                                 <div className="persons search-form-group col-3 col-md-6 col-sm-6">
@@ -106,7 +115,7 @@ class TopSection extends Component {
                         </form>
                     </div>
                 </section>
-                <section className='available-hotels' style={{display: this.state.display}} ref={availableHotelsRef}>
+                <section css={availableHotels} style={{display: this.state.display}} ref={availableHotelsRef}>
                     <div className="container">
                         <div className="homes-block-header">
                             <h3 className="h3-text">Available hotels</h3>

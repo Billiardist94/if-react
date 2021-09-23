@@ -14,6 +14,4 @@ export const hotelsReducer = handleActions( {
             ...state, 
             popular: popularHotels,
         })
-    }, initialState
-);
-
+    }, initialState);

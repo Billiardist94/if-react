@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
 import HomesGuestLovesHeader from './HomesGuestLovesHeader';
 import Carousel from './Carousel';
 import 'swiper/swiper-bundle.css';
 import '../../style.css';
 import Hotel from './Hotel';
-import {getPopularHotels} from '../../actionCreator/hotels'
+import { getPopularHotels } from '../../actionCreator/hotels';
 
 const Container = (props) => {
-  const popularHotels = useSelector(state => state.hotels.popular || []);
+  const popularHotels = useSelector((state) => state.hotels.popular || []);
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getPopularHotels())
+    dispatch(getPopularHotels());
   }, []);
 
   return (

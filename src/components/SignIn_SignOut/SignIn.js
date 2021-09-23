@@ -1,9 +1,11 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import bgImage from '../../bg-image.jpg';
 import './SignIn.css';
 import userData from '../../constants/userData';
-import getIsSignIn from '../../services';
+import { registrationBlock } from './SignIn.styles';
 
 const SignIn = () => {
   const history = useHistory();
@@ -79,7 +81,7 @@ const SignIn = () => {
   };
 
   return (
-    <section className="registration-block" style={{ backgroundImage: `url(${bgImage})` }}>
+    <section css={registrationBlock}>
       <form action=" /" className="registration-form" onSubmit={handleSignIn}>
         <h2 className="registration-header">Sign in to Your Account</h2>
         {emailDirty && emailError && <div style={{ color: 'red' }}>{emailError}</div>}

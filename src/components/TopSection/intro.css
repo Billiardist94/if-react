@@ -1,19 +1,19 @@
 /*Intro block start*/
-.intro{
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding-top: 290px;
-}
-.intro-title{
-    font-weight: 500;
-    font-size: 50px;
-    line-height: 59px;
-    color: #FFFFFF;
-    margin-bottom: 100px;
-}
+/*.intro{*/
+/*    min-height: 100vh;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*    background-size: cover;*/
+/*    padding-top: 290px;*/
+/*}*/
 
+/*.intro-title{*/
+/*    font-weight: 500;*/
+/*    font-size: 50px;*/
+/*    line-height: 59px;*/
+/*    color: #FFFFFF;*/
+/*    margin-bottom: 100px;*/
+/*}*/
 .form{
     display: flex;
     flex-direction: column;
@@ -27,14 +27,14 @@
     border-radius: 8px;
     background-color: #FFFFFF;
 }
-.label{
-    color: #FFFFFF;
-    position: absolute;
-    left: 25px;
-    top: -30px;
-}
+/*.label{*/
+/*    color: #FFFFFF;*/
+/*    position: absolute;*/
+/*    left: 25px;*/
+/*    top: -30px;*/
+/*}*/
 .label-1{
-    transition: all .25s;
+    transition: all .5s;
 }
 .label-2,
 .label-3{
