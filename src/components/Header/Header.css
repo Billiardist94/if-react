@@ -59,65 +59,6 @@ button, a, label {
 /*Columns layout end*/
 
 /*Header block start*/
-.header {
-    color: #FFFFFF;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-.header-body{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-.header-nav{
-    display: flex;
-    flex-wrap: wrap;
-}
-.header-menu-burger{
-    display: none;
-}
-.header-list{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    list-style: none;
-}
-.header-point:hover:after{
-    --line-width: 50px;
-    display: block;
-    content: ' ';
-    width: var(--line-width);
-    height: 4px;
-    background-color: #F5BD41;
-    position: relative;
-    top: 12px;
-    left: calc(50% - var(--line-width) / 2);
-}
-.header-icons{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    list-style: none;
-}
-.header-item{
-    margin-right: 24px;
-    cursor: pointer;
-}
-.header-item svg{
-    width: 30px;
-    height: 30px;
-}
-.header-item:nth-child(2) svg{
-    width: 40px;
-    height: 40px;
-}
-.header-item-txt{
-    margin-right: 24px;
-    cursor: pointer;
-    position: relative;
-}
 .header-item:last-of-type{
     margin-right: 0;
 }
@@ -145,9 +86,17 @@ button, a, label {
 .header-list span{
     font-size: 24px;
     line-height: 28px;
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
 }
-
+.theme-btn{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+}
 .sign-in-btn{
     width: 40px;
     height: 40px;
@@ -182,6 +131,5 @@ button, a, label {
 .active-NavLink{
     background-color: #F5BD41;
 }
-
 /*Header block end*/
 

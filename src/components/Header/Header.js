@@ -1,14 +1,39 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import React from 'react';
 import './Header.css';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import {
+  header,
+  headerBody,
+  headerNav,
+  headerMenuBurger,
+  headerList,
+  headerIcons,
+  headerItem,
+  headerItemTxt,
+  headerItemSvg,
+  headerItemSvgUser,
+  label,
+} from './Header.styles';
+import changeTheme from '../../actionCreator/theme';
 import SignOut from '../SignIn_SignOut/SignOut';
 import getIsSignIn from '../../services';
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const handleTheme = (e) => {
+    e.preventDefault();
+    dispatch(changeTheme());
+  };
+
   return (
-    <header className="header">
+    <header css={header}>
       <div className="container">
-        <div className="header-body">
+        <div css={headerBody}>
           <div className="header-logo">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#" className="header-logo-link">
@@ -26,44 +51,48 @@ const Header = () => {
               </svg>
             </a>
           </div>
-          <nav className="header-nav">
-            <ul className="header-list">
-              <li className="header-item-txt">
+          <nav css={headerNav}>
+            <ul css={headerList}>
+              <li css={headerItemTxt}>
                 <span>Stays</span>
               </li>
-              <li className="header-item-txt">
+              <li css={headerItemTxt}>
                 <span>Attractions</span>
               </li>
             </ul>
-            <ul className="header-icons">
-              <li className="header-item">
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M25.61 10.61V4.39h-6.22L15 0l-4.39 4.39H4.39v6.22L0 15l4.39 4.39v6.22h6.22L15 30l4.39-4.39h6.22v-6.22L30 15l-4.39-4.39zM15 22.958a7.924 7.924 0 01-3.316-.73c2.732-1.26 4.642-4.018 4.642-7.228s-1.91-5.968-4.642-7.228A7.924 7.924 0 0115 7.042c4.39 0 7.958 3.568 7.958 7.958 0 4.39-3.568 7.958-7.958 7.958z"
-                    fill="#fff"
-                  />
-                </svg>
+            <ul css={headerIcons}>
+              <li css={headerItem}>
+                <button onClick={handleTheme} type="button" className="theme-btn">
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    css={headerItemSvg}
+                  >
+                    <path
+                      d="M25.61 10.61V4.39h-6.22L15 0l-4.39 4.39H4.39v6.22L0 15l4.39 4.39v6.22h6.22L15 30l4.39-4.39h6.22v-6.22L30 15l-4.39-4.39zM15 22.958a7.924 7.924 0 01-3.316-.73c2.732-1.26 4.642-4.018 4.642-7.228s-1.91-5.968-4.642-7.228A7.924 7.924 0 0115 7.042c4.39 0 7.958 3.568 7.958 7.958 0 4.39-3.568 7.958-7.958 7.958z"
+                      fill="#fff"
+                      css={label}
+                    />
+                  </svg>
+                </button>
               </li>
-              <li className="header-item">
-                <NavLink
-                  to="/signin"
-                >
+              <li css={headerItem}>
+                <NavLink to="/signin">
                   <svg
                     width="40"
                     height="40"
                     viewBox="0 0 40 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    css={headerItemSvgUser}
                   >
                     <path
                       d="M20 0C8.96 0 0 8.96 0 20s8.96 20 20 20 20-8.96 20-20S31.04 0 20 0zm0 6c3.32 0 6 2.68 6 6s-2.68 6-6 6-6-2.68-6-6 2.68-6 6-6zm0 28.4c-5 0-9.42-2.56-12-6.44.06-3.98 8-6.16 12-6.16 3.98 0 11.94 2.18 12 6.16-2.58 3.88-7 6.44-12 6.44z"
                       fill="#fff"
+                      css={label}
                     />
                   </svg>
                 </NavLink>
@@ -74,7 +103,7 @@ const Header = () => {
               <a href="#nav" className="header-menu-button">
                 <span />
               </a>
-              <div id="nav" className="header-menu-burger">
+              <div id="nav" css={headerMenuBurger}>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#">
                   <svg

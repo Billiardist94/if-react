@@ -1,10 +1,13 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import './AvailHotelCard.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import bgImage from '../../bg-image.jpg';
 import TopSection from '../TopSection/TopSection';
 import 'swiper/swiper-bundle.css';
+import { availHotelBlock, availHotelLink } from './AvailHotelCard.styles';
 
 const AvailHotelCard = () => {
   const history = useHistory();
@@ -26,9 +29,11 @@ const AvailHotelCard = () => {
   }
   return (
     <>
-      <section className="avail-hotel-block" style={{ backgroundImage: `url(${bgImage})` }}>
+      <section css={availHotelBlock}>
         <div className="container">
-          <a href='#' onClick={handleGoBack} className="avail-hotel-link">&#8656; Back</a>
+          <a href="#" onClick={handleGoBack} css={availHotelLink}>
+            &#8656; Back
+          </a>
           <div className="avail-hotel-cards">
             <div className="avail-hotel-header">
               <h3>{hotel.name}</h3>
@@ -119,10 +124,7 @@ const AvailHotelCard = () => {
               <div>
                 <img src={hotel.imageUrl} alt={hotel.name} className="avail-hotel-img" />
                 <div className="avail-hotel-photos">
-                  <Swiper
-                    spaceBetween={3}
-                    slidesPerView={null}
-                  >
+                  <Swiper spaceBetween={3} slidesPerView={null}>
                     <SwiperSlide>
                       <img src={hotel.imageUrl} alt={hotel.name} className="swiper-photo" />
                     </SwiperSlide>

@@ -7,6 +7,7 @@ import AvailHotelCard from './AvailableHotels/AvailHotelCard';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import SignIn from './SignIn_SignOut/SignIn';
+import OffersBlock from './OffersBlock/OffersBlock';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function HomePage() {
   return (
     <>
       <TopSection className="intro" />
+      <OffersBlock />
       <HomesGuestLoves className="homes-guests-loves" />
     </>
   );

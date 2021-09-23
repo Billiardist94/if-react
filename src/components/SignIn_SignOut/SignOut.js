@@ -1,6 +1,10 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './SignOut.css';
+import { signOutBtn } from './SignOut.styles';
 
 const SignOut = ({ isClicked }) => {
   const history = useHistory();
@@ -16,7 +20,7 @@ const SignOut = ({ isClicked }) => {
       <div className="sign-out">
         <button
           type="button"
-          className="sign-out-btn"
+          css={signOutBtn}
           onClick={handleClick}
         >
           Sign out
